@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5 py-5">
   <h2 class="fs-1 mb-4"><span class="text-success">Register</span> Form:</h2>
   <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm)">
     <h2 class="alert alert-danger" *ngIf="errorMessage.length > 0">{{errorMessage}}</h2>
