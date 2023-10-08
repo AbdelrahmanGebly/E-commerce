@@ -1,0 +1,18 @@
+.logout{
+  cursor: pointer;
+}
+.navbar-collapse,.collapse
+{
+  flex-basis: 75% !important;
+}
+@media (min-width: 576px){
+  .navbar-expand-sm .navbar-collapse {
+      display: flex!important;
+      // flex-basis: auto;
+  }
+}
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 0;
+  align-items: center;
+}

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+a{
+  color: inherit;
+}
+ul{
+  list-style:none;
+}
+.card{
+  cursor: pointer;
+  border: solid transparent 2px !important;
+  transition: border .5s;
+  &:hover{
+    border: solid green 2px !important;
+    .btn{
+      top: 0px !important;
+      opacity: 1;
+    }
+  }
+  .btn{
+    position: relative !important;
+    top: 50px !important;
+    opacity: 0;
+    transition: .5s;
+  }
+}

@@ -1,0 +1,55 @@
+<app-main-slider></app-main-slider>
+<div class="container my-5">
+  <h1 class="text-capitalize mb-5">shop popular <span class="text-success">categories:</span></h1>
+  <div class="row g-4">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of Categories">
+        <ng-template carouselSlide [id]="slide.id">
+          <div class="text-center">
+            <img height="200" [src]="slide.image">
+            <h6 class="mt-2">{{slide.name}}</h6>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+    <!-- <div *ngFor="let category of Categories; let last = last" class="col-md-3">
+      <div class="border p-3 text-center rounded bg-light">
+        <img [src]="category.image" alt="category image" class="w-100" height="200px"/>
+        <h6 class="mt-2">{{category.name}}</h6>
+      </div>
+      <div *ngIf="last" class="seeMore d-flex justify-content-end p-2">
+        <i class="fa-solid fa-circle-arrow-right text-success fs-3" title="See More?" routerLink="/categories"></i>
+      </div>
+    </div> -->
+  </div>
+  <h1 class="text-capitalize my-5">shop popular <span class="text-success">brnads:</span></h1>
+  <div class="row g-4">
+    <div *ngFor="let brand of Brands; let last = last" class="col-sm-12 col-md-6 col-lg-3">
+      <div class="border p-3 text-center rounded bg-light">
+        <img [src]="brand.image" alt="brand image" class="w-100"/>
+        <h6 class="mt-2">{{brand.name}}</h6>
+      </div>
+      <div *ngIf="last" class="seeMore d-flex justify-content-end p-2">
+        <i class="fa-solid fa-circle-arrow-right text-success fs-3" title="See More?" routerLink="/brands"></i>
+      </div>
+    </div>
+  </div>
+  <h1 class="text-capitalize my-5">shop popular <span class="text-success">products:</span></h1>
+  <div class="row g-4">
+    <div *ngFor="let product of Products" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <div class="border p-3 text-center rounded bg-light card">
+        <a [routerLink]="['/productDetails',product._id]" class="text-decoration-none">
+          <img [src]="product.imageCover" alt="product image" class="w-100" height="200px"/>
+          <h6 class="text-success mt-2">{{product.category.name}}</h6>
+          <h6 class="mt-2 fw-bold">{{product.title.split(' ').slice(0,2).join(' ')}}</h6>
+          <div class="text-muted d-flex justify-content-between">
+            <p>{{product.price}}EGP</p>
+            <span><i class="fa-solid fa-star text-warning"></i>{{product.ratingsAverage}}</span>
+          </div>
+        </a>
+        <button (click)="addToCart(product._id)" class="btn btn-success w-100">Add+</button>
+      </div>
+    </div>
+  </div>
+
+</div>

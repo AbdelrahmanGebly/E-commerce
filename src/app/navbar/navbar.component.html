@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light position-fixed z-3 top-0 start-0 end-0">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand fw-bold d-inline-block fs-3" routerLink="home">
+        <i class="fa-solid fa-cart-shopping text-success"></i>
+            Fresh<span class="text-success">Cart</span>
+      </a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ps-md-5" id="collapsibleNavId">
+        <ul *ngIf="isLogin" class="navbar-nav  mt-2 mt-lg-0 ms-lg-5">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="/home">All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="brands">Brands</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="products">Products</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="wishlist">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="profile">Profile</a>
+          </li> -->
+        </ul>
+        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+          <li *ngIf="isLogin" class="nav-item position-relative">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="cart">
+              <i class="fa-solid fa-cart-shopping text-success fs-4"></i>
+              <span class="position-absolute text-white bg-dark rounded px-1 top-0 end-0">{{numOfCartItems}}</span>
+            </a>
+          </li>
+          <li *ngIf="isLogin" class="nav-item logout">
+            <a class="nav-link" (click)="logOut()">Logout</a>
+          </li>
+          <li *ngIf="!isLogin" class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="signin">Login</a>
+          </li>
+          <li *ngIf="!isLogin" class="nav-item">
+            <a class="nav-link" routerLinkActive="text-success" routerLink="signup">Register</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>

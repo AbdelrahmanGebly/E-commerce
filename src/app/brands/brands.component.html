@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="py-5">
+    <h1 class="text-success text-capitalize text-center mt-5">all brands</h1>
+    <div class="row g-4 py-5">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let brand of brands">
+        <div class="card rounded border">
+          <img [src]="brand.image" [alt]="brand.slug+' image'" class="w-100">
+          <h3 class="text-center my-4">{{brand.name}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

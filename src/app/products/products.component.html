@@ -1,0 +1,20 @@
+<div class="container py-5">
+  <h1 class="text-capitalize my-5 text-center">shop  <span class="text-success">popular products</span></h1>
+    <div class="row g-4">
+      <div *ngFor="let product of products" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="border p-3 text-center rounded bg-light card">
+          <a [routerLink]="['/productDetails',product._id]" class="text-decoration-none">
+            <img [src]="product.imageCover" alt="product image" class="w-100" height="200px"/>
+            <h6 class="text-success mt-2">{{product.category.name}}</h6>
+            <h6 class="mt-2 fw-bold">{{product.title.split(' ').slice(0,2).join(' ')}}</h6>
+            <div class="text-muted d-flex justify-content-between">
+              <p>{{product.price}}EGP</p>
+              <span><i class="fa-solid fa-star text-warning"></i>{{product.ratingsAverage}}</span>
+            </div>
+          </a>
+          <button (click)="addToCart(product._id)" class="btn btn-success w-100">Add+</button>
+        </div>
+      </div>
+    </div>
+
+</div>

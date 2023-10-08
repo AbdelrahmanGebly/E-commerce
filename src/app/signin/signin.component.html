@@ -1,0 +1,25 @@
+<div class="container my-5">
+  <h2 class="mb-5 fs-1"><span class="text-success">Signin</span> Page:</h2>
+  <form [formGroup] = "signinForm" (ngSubmit) = "signIn(signinForm)">
+    <label for="email" class="">Email:</label>
+    <input [class.is-invalid] = "signinForm.get('email')?.errors && signinForm.get('email')?.touched"
+    [class.is-valid] = "signinForm.get('email')?.errors == null" formControlName = "email" type="email" name="email" id="email" class="form-control my-2">
+    <div *ngIf="signinForm.get('email')?.errors && signinForm.get('email')?.touched" class="alert alert-danger">
+      <p *ngIf="signinForm.get('email')?.getError('required')">Input Required</p>
+      <p *ngIf="signinForm.get('email')?.getError('email')">Invalid Email</p>
+    </div>
+    <label for="password">Password:</label>
+    <input [class.is-invalid] = "signinForm.get('password')?.errors && signinForm.get('password')?.touched"
+    [class.is-valid] = "signinForm.get('password')?.errors == null" formControlName = "password" type="password" name="password" id="password" class="form-control my-3">
+    <div *ngIf="signinForm.get('password')?.errors && signinForm.get('password')?.touched" class="alert alert-danger">
+      <p *ngIf="signinForm.get('password')?.getError('required')">Input Required</p>
+      <p *ngIf="signinForm.get('password')?.getError('password')">Invalid Email</p>
+    </div>
+    <button [disabled]="signinForm.invalid" type="submit" class="btn btn-success">
+      <i *ngIf="Loading" class="fa-solid fa-spinner fa-spin"></i>
+      Signin
+    </button>
+    <a routerLink="/forgotPassword" class="text-success ms-3 text-decoration-none">Forgot Password?</a>
+  </form>
+
+</div>

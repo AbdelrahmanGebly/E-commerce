@@ -1,0 +1,30 @@
+<div class="container pt-5">
+<div class="bg-light p-5 pb-3 position-relative">
+  <header class="w-100 bg-light position-sticky">
+    <h2><span class="text-success">Shop</span> Cart</h2>
+    <h6 class="text-muted fw-normal">total price {{totalPrice}} EGP</h6>
+  </header>
+  <section class="content">
+    <div class="row py-4 border-bottom" *ngFor="let product of products">
+      <div class="col-md-2">
+        <img [src]="product.product.imageCover" [alt]="product.product.title" class="w-100">
+      </div>
+      <div class="col-md-9 d-flex justify-content-between align-items-center">
+        <div>
+          <h4>{{product.product.title}}</h4>
+          <h6 class="text-muted fw-normal">{{product.price}}EGP</h6>
+          <button (click)="removeItem(product.product._id)" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can me-2"></i>Remove</button>
+        </div>
+        <div class="count d-flex align-items-center">
+          <i (click)="updateProductCount(product.count-1,product.product._id)" class="fa-solid fa-minus border rounded text-danger p-2 border-danger"></i>
+          <span class="p-2 border mx-2 rounded">{{product.count}}</span>
+          <i (click)="updateProductCount(product.count+1,product.product._id)" class="fa-solid fa-plus border rounded p-2 text-success border-success"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button class="btn btn-success mt-2" routerLink="/checkout">
+    <i class="fa-regular fa-credit-card me-2"></i>
+    Online Payment</button>
+</div>
+</div>
